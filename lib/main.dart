@@ -11,6 +11,7 @@ class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
@@ -59,7 +60,6 @@ class _QuizPageState extends State<QuizPage> {
           ));
         }
         quizBrain.nextQuestion();
-        
       }
     });
   }
@@ -125,8 +125,16 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Row(
-          children: scoreKeeper,
+        Center(
+          child: Container(
+            padding: EdgeInsets.only(bottom: 15),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: scoreKeeper,
+              ),
+            ),
+          ),
         )
       ],
     );
